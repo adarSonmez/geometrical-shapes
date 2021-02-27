@@ -60,7 +60,7 @@ public abstract class Shapes implements Comparable<Shapes>, Cloneable, IDataBase
                 " and filled: " + isFilled;
     }
 
-    @Override // Return true if objects radii are the same
+    @Override
     public abstract boolean equals(Object o);
 
     @Override
@@ -116,7 +116,8 @@ class Triangle extends Shapes {
     public boolean equals(Object o) {
         if (!(o instanceof Triangle)) {
             return false;
-        }
+        } else if (getPerimeter() != ((Triangle) o).getPerimeter()) return false;
+
         return this.compareTo((Shapes) o) == 0;
     }
 
