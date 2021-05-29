@@ -6,6 +6,11 @@ public class Main {
         Shapes myTriangle = new Triangle(2, 3, 4, "yellow", true);
         Shapes mySquare = new Square(4, "black", false);
         Shapes myCircle = new Circle(2);
+
+        // method from IDataBase
+        myTriangle.welcome();
+
+        // works on Cloneable Interface
         Object clone = myCircle.clone();
 
         displayObject(myTriangle);
