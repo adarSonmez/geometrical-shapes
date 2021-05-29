@@ -17,6 +17,7 @@ public class Main {
         displayObject(mySquare);
         displayObject(clone);
 
+        // works on Comparable<> Interface
         Collections.shuffle(Shapes.getArrayList());
     }
 
