@@ -127,6 +127,11 @@ class Triangle extends Shapes {
         else if (this.getArea() > o.getArea()) return -1;
         else return 0;
     }
+
+    @Override
+    public void nothing() {
+
+    }
 }
 
 class Square extends Shapes {
@@ -178,6 +183,11 @@ class Square extends Shapes {
         if (this.getArea() > o.getArea()) return 1;
         else if (this.getArea() > o.getArea()) return -1;
         else return 0;
+    }
+
+    @Override
+    public void nothing() {
+
     }
 }
 
@@ -231,5 +241,10 @@ class Circle extends Shapes {
         if (this.getArea() > o.getArea()) return 1;
         else if (this.getArea() > o.getArea()) return -1;
         else return 0;
+    }
+
+    @Override
+    public void nothing() {
+
     }
 }
