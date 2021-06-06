@@ -58,11 +58,11 @@ public abstract class Shapes implements Comparable<Shapes>, Cloneable, IDataBase
     @Override
     public String toString() {
         return "Shapes{" +
-                "dateCreated=" + dateCreated +
+                "dateCreated=" + getDateCreated() +
                 ", isFilled=" + isFilled +
-                ", area=" + area +
-                ", perimeter=" + perimeter +
-                ", color='" + color + '\'' +
+                ", area=" + getArea() +
+                ", perimeter=" + getPerimeter() +
+                ", color='" + getColor() + '\'' +
                 '}';
     }
 
@@ -118,7 +118,7 @@ class Triangle extends Shapes {
                 "side1=" + side1 +
                 ", side2=" + side2 +
                 ", side3=" + side3 +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
@@ -194,7 +194,7 @@ class Square extends Shapes {
     public String toString() {
         return "Square{" +
                 "sides=" + sides +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
@@ -245,7 +245,7 @@ class Circle extends Shapes {
     public String toString() {
         return "Circle{" +
                 "radius=" + radius +
-                '}';
+                "} " + super.toString();
     }
 
     @Override
