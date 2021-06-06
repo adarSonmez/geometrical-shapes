@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Objects;
 
 public abstract class Shapes implements Comparable<Shapes>, Cloneable, IDataBase {
     protected static ArrayList<Object> stack = new ArrayList<>();
@@ -56,8 +57,13 @@ public abstract class Shapes implements Comparable<Shapes>, Cloneable, IDataBase
 
     @Override
     public String toString() {
-        return "created on " + dateCreated + "\ncolor: " + color +
-                " and filled: " + isFilled;
+        return "Shapes{" +
+                "dateCreated=" + dateCreated +
+                ", isFilled=" + isFilled +
+                ", area=" + area +
+                ", perimeter=" + perimeter +
+                ", color='" + color + '\'' +
+                '}';
     }
 
     @Override
@@ -108,17 +114,24 @@ class Triangle extends Shapes {
 
     @Override
     public String toString() {
-        return "This is a triangle" + "\nArea: " + getArea() +
-                "\nPerimeter: " + getPerimeter() + "\n" + super.toString() + "\n";
+        return "Triangle{" +
+                "side1=" + side1 +
+                ", side2=" + side2 +
+                ", side3=" + side3 +
+                '}';
     }
 
-    @Override // Return true if objects radii are the same
+    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Triangle)) {
-            return false;
-        } else if (getPerimeter() != ((Triangle) o).getPerimeter()) return false;
+        if (this == o) return true;
+        if (!(o instanceof Triangle)) return false;
+        Triangle triangle = (Triangle) o;
+        return Double.compare(triangle.side1, side1) == 0 && Double.compare(triangle.side2, side2) == 0 && Double.compare(triangle.side3, side3) == 0;
+    }
 
-        return this.compareTo((Shapes) o) == 0;
+    @Override
+    public int hashCode() {
+        return Objects.hash(side1, side2, side3);
     }
 
     @Override
@@ -165,17 +178,23 @@ class Square extends Shapes {
     }
 
     @Override
-    public String toString() {
-        return "This is a square" + "\nArea: " + getArea() +
-                "\nPerimeter: " + getPerimeter() + "\n" + super.toString() + "\n";
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Square)) return false;
+        Square square = (Square) o;
+        return Double.compare(square.sides, sides) == 0;
     }
 
-    @Override // Return true if objects radii are the same
-    public boolean equals(Object o) {
-        if (!(o instanceof Square)) {
-            return false;
-        }
-        return this.compareTo((Shapes) o) == 0;
+    @Override
+    public int hashCode() {
+        return Objects.hash(sides);
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "sides=" + sides +
+                '}';
     }
 
     @Override
@@ -224,16 +243,22 @@ class Circle extends Shapes {
 
     @Override
     public String toString() {
-        return "This is a circle" + "\nArea: " + getArea() +
-                "\nPerimeter: " + getPerimeter() + "\n" + super.toString() + "\n";
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
     }
 
-    @Override // Return true if objects radii are the same
+    @Override
     public boolean equals(Object o) {
-        if (!(o instanceof Circle)) {
-            return false;
-        }
-        return this.compareTo((Shapes) o) == 0;
+        if (this == o) return true;
+        if (!(o instanceof Circle)) return false;
+        Circle circle = (Circle) o;
+        return Double.compare(circle.radius, radius) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(radius);
     }
 
     @Override

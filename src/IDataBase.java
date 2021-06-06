@@ -3,5 +3,9 @@ public interface IDataBase {
         System.out.println("Welcome..");
     }
 
+    static void testStatic() {
+        System.out.println("testStatic method triggered.");
+    }
+
     void nothing();
 }
